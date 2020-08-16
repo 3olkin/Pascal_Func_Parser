@@ -62,9 +62,7 @@ def make_tokens(str)
   i = 0
   situations = [[')', ':'], [';', 'ct'], [';', 'vr'], [';', 'fn'], [';', 'bg'], ['nd', ';']]
   while i < (result.length - 1)
-    if situations.include?([result[i][0], result[i + 1][0]])
-      result.insert(i + 1, ['@@', ''])
-    end
+    result.insert(i + 1, ['@@', '']) if situations.include?([result[i][0], result[i + 1][0]])
     i += 1
   end
   # if operators.include?(result[i][0]) && operators.include?(result[i + 1][0])
